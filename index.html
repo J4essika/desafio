@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de salário</title>
+</head>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 400px;
+      background-color: black;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+        color: #fff;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: blanchedalmond;
+    }
+    input {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+</style>
+<body>
+
+
+    <h1>Calculadora de Salário</h1>
+
+  <label for="nome">Nome do usuário:</label>
+  <input type="text" id="nome" required >
+
+  <label for="horasTrabalhadas">Horas trabalhadas:</label>
+  <input type="number" id="horasTrabalhadas" required>
+
+  <label for="valorHora">Valor da hora:</label>
+  <input type="number" id="valorHora" required>
+
+  <button onclick="calcularSalario()">Calcular Salário</button>
+
+  <div id="resultado"></div>
+    
+</body>
+
+<script>
+    function calcularSalario() {
+      const nome = document.getElementById("nome").value;
+      const horasTrabalhadas = parseFloat(document.getElementById("horasTrabalhadas").value);
+      const valorHora = parseFloat(document.getElementById("valorHora").value);
+      
+      const salario = horasTrabalhadas * valorHora;
+
+      const resultadoElement = document.getElementById("resultado");
+      resultadoElement.innerText = `Salário de ${nome}: R$ ${salario.toFixed(2)}`;
+    }
+</script>
+</html>
